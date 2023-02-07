@@ -12,25 +12,35 @@ apt-get install wireguard-dkms wireguard-tools
 
 ## 2.配置wireguard
 ```
-wget 
+wget https://github.com/tq102412/wireguard-install/blob/main/wg.sh
 chmod 777 ./wg.sh
 ./wg.sh
+
+# 注意后续输出的client配置文件，后面要用
 ```
 
-## 3.添加更多的client(按需)
-- 下载生成client的脚本
+## 3.在本地建一个`client.conf`然后把上文的配置项`copy`进去，修改里面的服务器地址为公网地址
+
+## 4.添加更多的client(按需)
 ```
-wget 
+wget https://github.com/tq102412/wireguard-install/blob/main/clients.sh
 chmod 777 ./clients.sh
 ./clients.sh
 ```
 
-## 4.开启系统转发数据包
+## 5.开启系统转发数据包
 ```
 vi /etc/sysctl.conf
 net.ipv4.ip_forward = 1
 sysctl -p
 ```
 
+## 6.重启wireguard
+```
+wg-quick down wg0
+wg-quick up wg0
+```
+
 ## 注意
 - 一个client只能在同时在一个地方登录
+- 如果连接不上请重试几次，并检查服务器的安全策略
