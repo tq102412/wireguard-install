@@ -19,7 +19,9 @@ chmod 777 ./wg.sh
 # 注意后续输出的client配置文件，后面要用
 ```
 
-## 3.在本地建一个`client.conf`然后把上文的配置项`copy`进去，修改里面的服务器地址为公网地址
+## 3.配置客户端
+- 在本地建一个`client.conf`然后把上文的配置项`copy`进去，修改里面的服务器地址为公网地址
+- [客户端下载地址](https://www.wireguard.com/install/#ubuntu-module-tools)
 
 ## 4.添加更多的client(按需)
 ```
